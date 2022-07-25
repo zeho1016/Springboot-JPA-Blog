@@ -24,18 +24,5 @@ public class UserApiController {
 		return new ResponseDto<Integer>(HttpStatus.OK.value() , 1); // 자바오브젝트를 JSON으로 변환해서 return
 	}
 	
-	/* CTRL + shift + /  한번에 주석처리
-	 * @PostMapping("/api/user/login") public ResponseDto<Integer>
-	 * login(@RequestBody User user, HttpSession session) {
-	 * System.out.println("UserApiController: login호출됨"); User principal =
-	 * userService.로그인(user); //principal = 접근주체
-	 * 
-	 * if(principal != null) { session.setAttribute("principal", principal); }
-	 * 
-	 * System.out.println("session"+principal); return new
-	 * ResponseDto<Integer>(HttpStatus.OK.value() , 1); // 자바오브젝트를 JSON으로 변환해서
-	 * return }
-	 */
-	
 	
 }
