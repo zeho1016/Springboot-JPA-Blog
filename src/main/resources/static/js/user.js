@@ -6,6 +6,10 @@ let index = {
 		/*$("#btn-login").on("click",()=>{  // function(){}, ()=>{} this를 바인딩 하기위해 사용
 			this.login();
 		});*/
+		$("#btn-update").on("click",()=>{  // function(){}, ()=>{} this를 바인딩 하기위해 사용
+			this.update();
+		});
+		
 	},
 	
 	 save:function(){
@@ -30,6 +34,31 @@ let index = {
 			dataType:"json" // 요청의 결과를 문자열에서 javascript object로 변환
 		}).done(function(resp){
 			alert("회원가입이 완료되었습니다.");
+			//console.log(resp);
+			location.href="/";
+		}).fail(function(error){
+			alert(JSON.stringify(error));
+		}); // ajax 통신을 이용해 3개의 데이터를 json으로 변경하여 insert 요청!
+	},
+	
+	update:function(){
+		
+		
+		let data = {
+			id:$("#id").val(),
+			password:$("#password").val(),
+			email:$("#email").val()
+		};
+		
+		$.ajax({
+			// 회원가입 수행요청
+			type:"PUT",
+			url:"/user",
+			data:JSON.stringify(data), //http body데이터
+			contentType:"application/json;charset=utf-8", // body데이터의 타입
+			dataType:"json" // 요청의 결과를 문자열에서 javascript object로 변환
+		}).done(function(resp){
+			alert("회원수정이 완료되었습니다.");
 			//console.log(resp);
 			location.href="/";
 		}).fail(function(error){

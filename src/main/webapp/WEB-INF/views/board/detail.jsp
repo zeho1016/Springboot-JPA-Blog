@@ -14,7 +14,9 @@
 <div class="container">
 	  <div class="mb-3">
 	  	글번호: <span id="id"><i>${board.id } </i></span>
-	  	작성자: <span id="id"><i>${board.user.username } </i></span>
+	  	작성자: <span id="username"><i>${board.user.username } </i></span>
+	  	조회수: <span id="count"><i>${board.count} </i></span>
+	  	
 	  </div>	  
 	  
 	  <div>
