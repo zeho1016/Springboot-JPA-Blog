@@ -25,7 +25,7 @@ public class BoardService {
 				 .orElseThrow(()->{
 						return new IllegalArgumentException("글 상세보기 : 아이디를 찾을 수 없습니다.");
 					}); // 영속화
-		 board.setTitle(requestBoard.getTitle());
+		 board.setTitle(requestBoard.getTitle()); 
 		 board.setContent(requestBoard.getContent());
 		 // 해당 함수 종료시 트랜잭션이 종료, 더티채킹- 자동 업데이트 됨. flush
 	}

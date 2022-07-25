@@ -28,6 +28,7 @@ public class SecurityConfig  {
 	@Autowired
 	private PrincipalDetailService principalDetailService;
 	
+	
 	@Bean // IoC
 	public BCryptPasswordEncoder encodePWD() {
 		return new BCryptPasswordEncoder(); 
@@ -35,7 +36,7 @@ public class SecurityConfig  {
 	
 	@Bean
 	  public AuthenticationManager authenticationManager(
-	      AuthenticationConfiguration auth
+	      AuthenticationConfiguration auth 
 	  ) throws Exception {
 	    return auth.getAuthenticationManager();
 	  }
