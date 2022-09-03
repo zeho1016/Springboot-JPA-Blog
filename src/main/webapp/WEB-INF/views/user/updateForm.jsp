@@ -25,7 +25,7 @@
 	  </div>
 		  <div class="form-group mb-3">
 		    <label for="email">Email</label>
-		    <input type="email" value="${principal.user.email }" class="form-control" placeholder="Enter email" id="email" readonly>
+		    <input type="email" value="${principal.user.email }" class="form-control" placeholder="Enter email" id="email" >
 		  </div>
 	  </c:if>
 	</form> 

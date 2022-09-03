@@ -65,7 +65,7 @@ public class UserController {
 	}
 	
 	@GetMapping("/auth/kakao/callback")
-	public @ResponseBody String kakaoCallback(String code) { // Data를 return해주는 컨트롤러 함수
+	public String kakaoCallback(String code) { // Data를 return해주는 컨트롤러 함수
 		
 		//POST 방식으로 key=value 데이터를 요청 
 		// Retrofit2
@@ -153,15 +153,15 @@ public class UserController {
 				.email(kakaoProfile.getKakao_account().getEmail())
 				.oauth("kakao")
 				.build();
-				
+		
 		// 가입자or 비가입자 확인
 		User originUser = userService.회원찾기(kakaoUser.getUsername());
-		
 		if(originUser.getUsername() == null) {
 			System.out.println("기존회원이 아니기에 자동 회원가입을 진행합니다.");
 			userService.회원가입(kakaoUser); 
 		}
 		
+		System.out.println("자동로그인을 진행합니다");		
 		//자동로그인처리
 		Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(kakaoUser.getUsername(), cosKey));
 		SecurityContextHolder.getContext().setAuthentication(authentication);
